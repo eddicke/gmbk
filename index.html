@@ -62,7 +62,7 @@ var socket;
       var score = 0
 var username = window.prompt('Enter a username:', '');
           var name = username;
-           var id = Number(username);
+           var id = null;
           
 document.getElementById('chatContent').innerHTML = "welcome to the chat forum"
 
@@ -475,7 +475,7 @@ scene.registerBeforeRender(function(){
     console.log(button2.buttons[0].children[0].text)
     for(var i = 0; i<button2.buttons.length; i++){
     if(button2.buttons[i].children[0].text === "okay"){
-	//id = i
+	id = i
     
     }    
     }
