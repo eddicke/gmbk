@@ -485,9 +485,10 @@ scene.registerBeforeRender(function(){
 })
 
           //********************************************************************************THE SERVER-CLIENT SIDE
+		  socket = io();
 		setTimeout(function(){
 if(id != null){
-  socket = io();
+
  
           function check(){
            console.log("jdkfldjfdsklvgvgfdgfg"); 
@@ -638,6 +639,15 @@ balls[player.id].rotation.copyFrom(player.rot)
   });
 
 }
+			
+			 function send() {
+  
+ socket.emit('chat', document.getElementById('messageInput').value, username);
+  
+  
+ document.getElementById('messageInput').value = '';
+}
+			
 		}, 5000);
 
 //////////////////**************************************************///
@@ -661,13 +671,7 @@ balls[player.id].rotation.copyFrom(player.rot)
         });
       
       
-      function send() {
-  
- socket.emit('chat', document.getElementById('messageInput').value, username);
-  
-  
- document.getElementById('messageInput').value = '';
-}
+     
          </script>
     </div>
   </body>
