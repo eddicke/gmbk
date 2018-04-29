@@ -482,8 +482,10 @@ scene.registerBeforeRender(function(){
 })
 
           //********************************************************************************THE SERVER-CLIENT SIDE
-		  socket = io();
+		
 		setTimeout(function(){
+			  socket = io();
+			
           function check(){
            console.log("jdkfldjfdsklvgvgfdgfg"); 
           }
@@ -659,10 +661,10 @@ console.log("THIS IS THE ID "+id)
       		
 			 function send() {
   
- socket.emit('chat', document.getElementById('messageInput').value, username);
+/* socket.emit('chat', document.getElementById('messageInput').value, username);
   
   
- document.getElementById('messageInput').value = '';
+ document.getElementById('messageInput').value = '';*/
 }
      
          </script>
