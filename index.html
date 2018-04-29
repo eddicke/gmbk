@@ -471,15 +471,12 @@ for(var i = 0; i<this.buttons.length; i++){
 var button2 = new GUInterface(8, true, 0.8, -2)
 button2.interact()
 
-var index = [];
 scene.registerBeforeRender(function(){
     console.log(button2.buttons[0].children[0].text)
     for(var i = 0; i<button2.buttons.length; i++){
     if(button2.buttons[i].children[0].text === "okay"){
-      index.push(i)
-	    if(id != null){
-		    id = i
-    }
+	id = i
+    
     }    
     }
 })
@@ -487,9 +484,6 @@ scene.registerBeforeRender(function(){
           //********************************************************************************THE SERVER-CLIENT SIDE
 		  socket = io();
 		setTimeout(function(){
-
-
- 
           function check(){
            console.log("jdkfldjfdsklvgvgfdgfg"); 
           }
