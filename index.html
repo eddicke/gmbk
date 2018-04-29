@@ -638,18 +638,9 @@ balls[player.id].rotation.copyFrom(player.rot)
    document.getElementById('chatContent').innerHTML += '<p><' + format + '>' + author + '</' + format + '> | ' + message + '</p>';
   });
 
+		alert("online!!")
 }
-			
-			alert("online!!")
-			 function send() {
-  
- socket.emit('chat', document.getElementById('messageInput').value, username);
-  
-  
- document.getElementById('messageInput').value = '';
-}
-			
-		}, 5000);
+}, 5000);
 
 //////////////////**************************************************///
      
@@ -671,7 +662,14 @@ balls[player.id].rotation.copyFrom(player.rot)
             engine.resize();
         });
       
-      
+      		
+			 function send() {
+  
+ socket.emit('chat', document.getElementById('messageInput').value, username);
+  
+  
+ document.getElementById('messageInput').value = '';
+}
      
          </script>
     </div>
