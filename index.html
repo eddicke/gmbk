@@ -195,7 +195,7 @@ sphere.dispose()
         this.switcher.cornerRadius = 5;
         this.switcher.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
         this.switcher.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-        advancedTexture.addControl(this.switcher);  
+        gui.addControl(this.switcher);  
 }
 
 GUIControl.prototype.switch = function(button){
@@ -239,7 +239,7 @@ this.background = background
     button1.top = 208*(i/3)-250;
     button1.left = 100;
     button1.width = "300px"
-    advancedTexture.addControl(button1);   
+    gui.addControl(button1);   
 
    var button = BABYLON.GUI.Button.CreateImageWithCenterTextButton("but", "#"+i, "textures/palm.png");
     button.width = "60px"
@@ -321,7 +321,7 @@ background.width = .6
     button1.indexnum = 3
     this.buttons.push(button1);
      
-    advancedTexture.addControl(this.background); 
+    gui.addControl(this.background); 
     
     }
    
@@ -342,7 +342,7 @@ var GUIWindow = function(index1, index2){
     background.top = -100
     background.alpha = 0.
     this.window = background
-    advancedTexture.addControl(this.window); 
+    gui.addControl(this.window); 
 
     //grid of options
     var board = [
@@ -481,7 +481,7 @@ scene.registerBeforeRender(function(){
     }    
     
 })
-		
+
           //********************************************************************************THE SERVER-CLIENT SIDE
   socket = io();
  
