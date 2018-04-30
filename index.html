@@ -480,7 +480,11 @@ scene.registerBeforeRender(function(){
     }    
     }
 })
-
+//*************************************************************************************************LOGIN PORTAL SERVER
+		var portal = io();
+	portal.on('connect', function() {
+      alert("there's a new user online");
+    })
           //********************************************************************************THE SERVER-CLIENT SIDE
 		
 		setTimeout(function(){
