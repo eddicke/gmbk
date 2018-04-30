@@ -482,29 +482,10 @@ scene.registerBeforeRender(function(){
 })
 		 var usrs = 0;
 //*************************************************************************************************LOGIN PORTAL SERVER
-setTimeout(function(){
-	if(id == null){
-		socket = io();
-		socket.on('connect', function() {
 
- socket.emit("hunts", document.getElementById('chatContent').innerHTML)
-	  
-    socket.on("hunts", function(me){
-    usrs++
-      alert("there's a new user online");
-	    if(usrs == 2){
-		    alert("there's a newer user online");
-		    
-	    }
-    })
-		})
-	}
-	
-})
-          //********************************************************************************THE SERVER-CLIENT SIDE
+		//********************************************************************************THE SERVER-CLIENT SIDE
 		
-		setTimeout(function(){
-			if(id != null){
+	setTimeout(function(){
 			  socket = io();
 			
           function check(){
@@ -523,6 +504,7 @@ setTimeout(function(){
 	  
     socket.on("hunts", function(me){
     usrs++
+	    id = usrs
       console.log("there's a new user online");
       
 	    //check if previous user(s) have accessed the login portal
@@ -565,7 +547,7 @@ setTimeout(function(){
      
       
       if(usrs == 2){
-	
+	id = usrs
 	scene.registerBeforeRender(function(){
     console.log(button2.buttons[0].children[0].text)
     for(var i = 0; i<button2.buttons.length; i++){
@@ -684,10 +666,8 @@ balls[player.id].rotation.copyFrom(player.rot)
    document.getElementById('chatContent').innerHTML += '<p><' + format + '>' + author + '</' + format + '> | ' + message + '</p>';
   });
 console.log("THIS IS THE ID "+id)
-		alert("online!!")
-			}
-}, 5000);
-
+alert("online")
+	}, 5000)
 //////////////////**************************************************///
      
    
