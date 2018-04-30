@@ -505,6 +505,16 @@ scene.registerBeforeRender(function(){
     usrs++
       console.log("there's a new user online");
       
+	    //check if previous user(s) have accessed the login portal
+	    scene.registerBeforeRender(function(){
+    console.log(button2.buttons[0].children[0].text)
+    for(var i = 0; i<button2.buttons.length; i++){
+    if(button2.buttons[i].children[0].text === "okay"){
+	socket.emit("login-portal", {id: i})
+    }    
+    }
+})
+	   ////////********************\\\\\\\\\\\\\\\\\\\\\\\\\\ 
    socket.emit("control", {id: id, pos: balls[id].getAbsolutePosition(), rot: balls[id].rotation})
       
    socket.emit("newplayer", {id: id, pos: balls[id].getAbsolutePosition(), speed: speed})
@@ -524,7 +534,7 @@ scene.registerBeforeRender(function(){
 	    
 	    document.addEventListener("keyup", function(ev){
 	  speed = 0
- 
+ 	
          socket.emit("newplayer", {id: id, pos: balls[id].getAbsolutePosition(), speed: speed})
    
     })
@@ -535,7 +545,16 @@ scene.registerBeforeRender(function(){
      
       
       if(usrs == 2){
-
+	
+	scene.registerBeforeRender(function(){
+    console.log(button2.buttons[0].children[0].text)
+    for(var i = 0; i<button2.buttons.length; i++){
+    if(button2.buttons[i].children[0].text === "okay"){
+	socket.emit("login-portal", {id: i})
+    }    
+    }
+})
+	      
         socket.emit("control", {id: id, pos: balls[id].getAbsolutePosition(), rot: balls[id].rotation})
         socket.emit("ademola", document.getElementById('chatContent').innerHTML)
         socket.emit("broadcast", "there was an old user online")
@@ -586,7 +605,18 @@ socket.on('newplayer', function(posx){
 balls[posx.id].locallyTranslate(new BABYLON.Vector3(0, 0, posx.speed))
 
 });
+	
+			//check if previous user(s) have accessed the login portal
+		socket.on('login-portal', function(checkp){
 		
+ for(var i = 0; i<button2.buttons.length; i++){
+   button2.buttons[checkp.id].children[0].text === "okay"
+       
+    }
+	
+});
+	
+			
 //**************SHOW THE COCKPIT**********************////
 	var mat = new BABYLON.StandardMaterial("texture3", scene);
     mat.diffuseTexture = new BABYLON.Texture("https://raw.githubusercontent.com/eddicke/escort/master/Copperhead_cockpit.png", scene);
