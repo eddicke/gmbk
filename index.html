@@ -573,6 +573,18 @@ scene.registerBeforeRender(function(){
           
 console.log("this is your workplace "+id)  
 
+		 var pos = []
+socket.on('control', function(player){
+  balls[player.id].setEnabled(true);
+balls[player.id].position.copyFrom(player.pos)
+balls[player.id].rotation.copyFrom(player.rot)
+	id = player.id
+})
+          setTimeout(function(){
+	alert("new user "+usrs)
+	alert(id)
+	  })
+		
  var camRot = 0
 scene.registerBeforeRender(function(){
 
@@ -638,16 +650,7 @@ balls[posx.id].locallyTranslate(new BABYLON.Vector3(0, 0, posx.speed))
 		balls[id].scaling.x = 4
 		
               ///////////////////////////************************************************
-          var pos = []
-socket.on('control', function(player){
-  balls[player.id].setEnabled(true);
-balls[player.id].position.copyFrom(player.pos)
-balls[player.id].rotation.copyFrom(player.rot)
-	id = player.id
-})
-          
-	alert("new user "+usrs)
-	alert(id)
+         
 
   //*****************************************************************************************************
    socket.on("ademola", function(gme){
