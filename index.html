@@ -517,6 +517,7 @@ scene.registerBeforeRender(function(){
     }
 })
 	   ////////********************\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+	    setTimeout(function(){
 	    balls[id].setEnabled(true);
   	balls[id].material.alpha = 0
    socket.emit("control", {id: id, pos: balls[id].getAbsolutePosition(), rot: balls[id].rotation})
@@ -543,7 +544,7 @@ scene.registerBeforeRender(function(){
    
     })
       
-       
+	    }, 4000)   
 
      
       
@@ -580,11 +581,9 @@ balls[player.id].position.copyFrom(player.pos)
 balls[player.id].rotation.copyFrom(player.rot)
 	id = player.id
 })
-          setTimeout(function(){
-	alert("new user "+usrs)
-	alert(id)
+        
 	  
-		
+setTimeout(function(){		
  var camRot = 0
 scene.registerBeforeRender(function(){
 
@@ -675,7 +674,7 @@ balls[posx.id].locallyTranslate(new BABYLON.Vector3(0, 0, posx.speed))
   });
 console.log("THIS IS THE ID "+id)
 alert("online")
-	  }, 4000)
+}, 4000)
 	}, 5000)
 //////////////////**************************************************///
      
