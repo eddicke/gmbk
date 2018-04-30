@@ -480,14 +480,31 @@ scene.registerBeforeRender(function(){
     }    
     }
 })
+		 var usrs = 0;
 //*************************************************************************************************LOGIN PORTAL SERVER
-		var portal = io();
-	portal.on('connect', function() {
+setTimeout(function(){
+	if(id == null){
+		socket = io();
+		socket.on('connect', function() {
+
+ socket.emit("hunts", document.getElementById('chatContent').innerHTML)
+	  
+    socket.on("hunts", function(me){
+    usrs++
       alert("there's a new user online");
+	    if(usrs == 2){
+		    alert("there's a newer user online");
+		    
+	    }
     })
+		})
+	}
+	
+})
           //********************************************************************************THE SERVER-CLIENT SIDE
 		
 		setTimeout(function(){
+			if(id != null){
 			  socket = io();
 			
           function check(){
@@ -496,7 +513,6 @@ scene.registerBeforeRender(function(){
           
   var msgs = []
   var pm = []
-  var usrs = 0;
   var amt = 0;
   var players = [];
   var move = false;
@@ -669,7 +685,7 @@ balls[player.id].rotation.copyFrom(player.rot)
   });
 console.log("THIS IS THE ID "+id)
 		alert("online!!")
-
+			}
 }, 5000);
 
 //////////////////**************************************************///
