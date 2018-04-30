@@ -22,15 +22,15 @@ io.on('connection', function(socket) {
   });
   
     socket.on('change', function(player, count) {
-  //  console.log('message received, sent by: ' + username + ', content: ' + message);
-   // oldMsg.push('message received, sent by: ' + username + ', content: ' + message);
     io.emit('change', player, count);
   });
   
  socket.on('ademola', function(gme){
     io.emit('ademola', gme);
   });
-  
+   socket.on('login-portal', function(checkp){
+    io.emit('login-portal', checkp);
+  });
    socket.on('newplayer', function(posx){
     io.emit('newplayer', posx);
   });
